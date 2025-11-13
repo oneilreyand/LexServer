@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key'; // Use environment variable in production
-const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'your-refresh-secret-key'; // Use environment variable in production
+const JWT_SECRET = process.env.JWT_SECRET || 'fallback-jwt-secret-for-development-only';
+const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'fallback-refresh-secret-for-development-only';
 
 /**
  * Generate a JWT token for a user
@@ -15,7 +15,7 @@ function generateToken(user) {
     name: user.name,
     role: user.role
   };
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: '24h' });
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: '1d' });
 }
 
 /**

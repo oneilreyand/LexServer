@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "postgres",
-    "password": "21139914881",
+    "password": null,
     "database": "nextlevel_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
@@ -14,10 +14,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "postgres",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "use_env_variable": "DATABASE_URL",
     "dialect": "postgres"
   }
 }

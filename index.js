@@ -50,6 +50,7 @@ const buddyRoutes = require('./routes/buddy');
 const courseRoutes = require('./routes/course');
 const questRoutes = require('./routes/quest');
 const notificationRoutes = require('./routes/notification');
+const videoRoutes = require('./routes/video');
 
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -88,6 +89,7 @@ app.use('/buddies', buddyRoutes);
 app.use('/courses', courseRoutes);
 app.use('/quests', questRoutes);
 app.use('/notifications', notificationRoutes);
+app.use('/videos', videoRoutes);
 
 // Global error handler
 app.use((err, req, res, next) => {
@@ -109,7 +111,5 @@ db.sequelize.sync({ force: false })
     console.error('Error syncing database:', err);
   });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Export the app for Vercel serverless
+module.exports = app;

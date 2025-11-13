@@ -1,1 +1,8 @@
 .vercel
+.env
+.env.local
+.env.production
+.env.staging
+config/config.json
+*.log
+node_modules/
