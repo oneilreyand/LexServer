@@ -2,10 +2,10 @@
   "name": "LexServer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node --watch index.js",
-    "dev": "node --watch index.js",
+    "start": "node --watch api/index.js",
+    "dev": "node --watch api/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
