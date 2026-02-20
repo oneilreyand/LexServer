@@ -55,7 +55,16 @@ app.use((req, res) => res.status(404).json({ error: 'Route not found' }));
 
 // Sync DB once
 db.sequelize.sync({ force: false })
-  .then(() => console.log('✅ Database synced successfully'))
+  .then(() => {
+    console.log('✅ Database synced successfully');
+    // Start local server if not in production
+    if (process.env.NODE_ENV !== 'production') {
+      const PORT = process.env.PORT || 3002;
+      app.listen(PORT, () => {
+        console.log(`🚀 Server running on port ${PORT}`);
+      });
+    }
+  })
   .catch((err) => console.error('❌ Error syncing database:', err));
 
 module.exports = serverless(app);
